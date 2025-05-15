@@ -46,13 +46,16 @@ baby-detector/
 📍 Add screenshots in a folder named `screenshots/` and update the paths below:
 
 > ### 📌 API Running in Terminal  
-> ![API Running](screenshots/api-terminal.png)
+![image](https://github.com/user-attachments/assets/79b18121-f9cd-4334-b1ce-171aa927df5e)
+
 
 > ### 📌 Postman Test Example  
-> ![Postman](screenshots/postman-test.png)
+![image](https://github.com/user-attachments/assets/511c7d2b-4592-408c-bfed-e689560f1320)
+
 
 > ### 📌 Prediction Output  
-> ![Prediction](screenshots/prediction-result.png)
+![image](https://github.com/user-attachments/assets/4d2010c0-d7d8-410d-a70d-8c85448da84b)
+
 
 ---
 
