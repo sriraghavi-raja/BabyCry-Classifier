@@ -1,21 +1,16 @@
-Here’s a `README.md` template you can use for your **Baby Cry Detector** backend project. It includes placeholders for screenshots and details, so you can customize it as you complete your app:
-
----
-
-```markdown
 # 👶 Baby Cry Detector - Backend
 
-A Python-based backend system that detects baby cries and classifies them into different categories (like **hunger**, **pain**, **tiredness**, etc.) using machine learning. Built with Flask/FastAPI and TensorFlow, this backend powers the detection and inference logic for the full-stack Baby Cry Classifier app.
+A Python-based backend system that detects baby cries and classifies them into different categories (like **hunger**, **pain**, **tiredness**, etc.) using a trained machine learning model. Built with Flask or FastAPI, this backend powers the inference logic for the Baby Cry Classifier app.
 
 ---
 
 ## 🚀 Features
 
-- 🔉 Detects baby crying from audio inputs
-- 🤖 Classifies the cry into specific needs (hunger, pain, discomfort, etc.)
-- 🧠 Powered by a trained ML/DL model
-- 📦 REST API for frontend integration
-- ✅ Simple & fast prediction endpoint
+- 🔊 Detects baby cries from audio input
+- 🧠 Classifies cries as hunger, pain, etc.
+- 🎯 REST API for easy integration with frontend/mobile apps
+- 📁 Predict using `.wav` audio files
+- ✅ Lightweight, modular, and scalable
 
 ---
 
@@ -23,175 +18,145 @@ A Python-based backend system that detects baby cries and classifies them into d
 
 - **Language**: Python 3.10+
 - **Framework**: Flask / FastAPI
-- **ML Library**: TensorFlow / Keras
-- **Other Libraries**: NumPy, Librosa, Pydub, Scikit-learn
-- **Model Type**: CNN / LSTM (customizable)
+- **ML/DL**: TensorFlow / Keras
+- **Audio Processing**: Librosa, Pydub
+- **Deployment**: Localhost / Cloud ready
 
 ---
 
 ## 📁 Project Structure
 
-```
-
 baby-detector/
 ├── backend/
-│   ├── app/                  # Core app code
-│   │   ├── main.py           # API routes
-│   │   ├── model/            # Pretrained model
-│   │   ├── utils.py          # Helper functions
-│   ├── audio\_samples/        # Test audio files
-│   ├── requirements.txt      # Dependencies
-│   ├── README.md             # You're here
-│   └── .gitignore            # Ignore files
+│ ├── app/
+│ │ ├── main.py # API routes
+│ │ ├── model/ # Trained ML model
+│ │ ├── utils.py # Helper functions
+│ ├── audio_samples/ # Sample cry audios
+│ ├── requirements.txt # Python dependencies
+│ ├── README.md # Project documentation
+│ └── .gitignore # Files to ignore in git
 
-````
+
 
 ---
 
 ## 📸 Screenshots
 
-Add your backend screenshots here (e.g., Postman tests, terminal output, API responses):
+📍 Add screenshots in a folder named `screenshots/` and update the paths below:
 
-> ### 🖼️ API Running in Terminal
-> ![API Running](screenshots/api-running.png)
+> ### 📌 API Running in Terminal  
+> ![API Running](screenshots/api-terminal.png)
 
-> ### 🖼️ Postman Test of `/predict`
-> ![Prediction API](screenshots/predict-endpoint.png)
+> ### 📌 Postman Test Example  
+> ![Postman](screenshots/postman-test.png)
 
-> *(Place your screenshots in a `/screenshots` folder in your repo)*
+> ### 📌 Prediction Output  
+> ![Prediction](screenshots/prediction-result.png)
 
 ---
 
 ## 🔧 Setup Instructions
 
-### 1️⃣ Clone the Repository
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/sriraghavi-raja/Baby-Cry-Classifier.git
 cd Baby-Cry-Classifier/backend
-````
 
-### 2️⃣ Create & Activate Virtual Environment
+
+### 2. Create & Activate a Virtual Environment
 
 ```bash
 python -m venv venv
-source venv/bin/activate       # macOS/Linux
-venv\Scripts\activate          # Windows
+venv\Scripts\activate         # Windows
+# OR
+source venv/bin/activate     # macOS/Linux
 ```
 
-### 3️⃣ Install Dependencies
+### 3. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4️⃣ Run the App
+### 4. Run the Backend API
 
-If using **Flask**:
-
-```bash
-python app/main.py
-```
-
-If using **FastAPI**:
+If you're using **FastAPI**:
 
 ```bash
 uvicorn app.main:app --reload
+```
+
+Or if you're using **Flask**:
+
+```bash
+python app/main.py
 ```
 
 ---
 
 ## 🔍 API Endpoints
 
-| Method | Endpoint   | Description                            |
-| ------ | ---------- | -------------------------------------- |
-| POST   | `/predict` | Upload baby cry audio & get prediction |
-| GET    | `/health`  | Check if API is running                |
+| Method | Endpoint   | Description                         |
+| ------ | ---------- | ----------------------------------- |
+| POST   | `/predict` | Upload baby cry audio & get results |
+| GET    | `/health`  | Check if backend is running         |
 
 ---
 
-## 🎯 Example Prediction Request
+## 🎯 Example: Prediction Request
 
 Using **cURL**:
 
 ```bash
 curl -X POST http://localhost:8000/predict \
-  -F "file=@audio_samples/test_cry.wav"
+  -F "file=@audio_samples/test.wav"
 ```
 
 Using **Postman**:
 
-* Set method to POST
+* Set method: POST
 * URL: `http://localhost:8000/predict`
-* Body → form-data → `file`: Upload an audio file
+* Body → form-data → Key = `file`, Value = Upload `.wav` file
 
 ---
 
-## ✅ Output Sample
+## ✅ Sample Output
 
 ```json
 {
   "status": "success",
-  "prediction": "Hunger Cry",
-  "confidence": 0.94
+  "prediction": "Pain Cry",
+  "confidence": 0.91
 }
 ```
 
 ---
 
-## 🧪 Testing
-
-You can run test predictions using sample `.wav` files inside `audio_samples/`.
-
----
-
-## 🧠 Model
-
-* Pretrained using labeled baby cry datasets
-* Extracted MFCC features from audio
-* Trained using a CNN/LSTM-based deep learning model
-* Saved as `model.h5` in the `model/` directory
-
----
-
 ## 📌 TODO
 
-* [ ] Improve accuracy with larger dataset
-* [ ] Add logging and exception handling
-* [ ] Build and connect frontend
-* [ ] Deploy to cloud (Render/Heroku/Vercel)
-
----
-
-## 🤝 Contributing
-
-Pull requests are welcome. For major changes, please open an issue first.
-
----
-
-## 📄 License
-
-MIT License
+* [ ] Improve model accuracy
+* [ ] Add Docker support
+* [ ] Connect frontend interface
+* [ ] Add real-time audio streaming
 
 ---
 
 ## 🙋‍♀️ Author
 
 **Sriraghavi Raja**
-
-[GitHub](https://github.com/sriraghavi-raja)
+🔗 [GitHub](https://github.com/sriraghavi-raja)
 
 ---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
 
 ```
 
 ---
 
-### 📌 How to use this:
-1. Save it as `README.md` in your backend folder.
-2. Create a folder named `screenshots` and place relevant images in it.
-3. Replace `Flask` or `FastAPI` sections based on what you are using.
-4. Update model details if it differs from CNN/LSTM.
-
-Would you like me to customize this for Flask or FastAPI based on your code?
+Let me know if you're using **Flask** or **FastAPI**, and I’ll tailor the run instructions and endpoint formats accordingly. I can also help you automatically generate the `requirements.txt` file if needed.
 ```
