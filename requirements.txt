@@ -1,0 +1,16 @@
+fastapi==0.95.2
+uvicorn==0.22.0
+python-multipart==0.0.6
+# numpy==1.24.3
+pydantic==1.10.7
+scikit-learn==1.2.2
+librosa==0.10.0
+python-dotenv==1.0.0
+tensorflow==2.12.0  # or pytorch if needed
+sqlalchemy==2.0.15  # optional
+
+pandas
+scikit-learn
+librosa
+joblib
+numpy
